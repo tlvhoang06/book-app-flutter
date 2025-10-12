@@ -23,7 +23,6 @@ class CustomButton extends ConsumerWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(25),
         ),
-        enabledMouseCursor: MouseCursor.uncontrolled, 
       ),
       child: Text(
         title,
