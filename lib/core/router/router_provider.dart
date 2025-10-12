@@ -1,12 +1,12 @@
 import 'package:bookapp/core/services/auth_provider.dart';
-import 'package:bookapp/views/auth/loading_page.dart';
-import 'package:bookapp/views/auth/login_page.dart';
+import 'package:bookapp/pages/loading_page.dart';
+import 'package:bookapp/pages/auth/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:bookapp/views/auth/register_page.dart';
-import 'package:bookapp/views/home_page.dart';
-import 'package:bookapp/views/profile_page.dart';
+import 'package:bookapp/pages/auth/register_page.dart';
+import 'package:bookapp/pages/home_page.dart';
+import 'package:bookapp/pages/profile_page.dart';
 
 class RouterNotifier extends ChangeNotifier {
   final Ref _ref;
