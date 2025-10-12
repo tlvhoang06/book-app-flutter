@@ -47,6 +47,7 @@ class CustomTexField extends ConsumerWidget {
         ),
         controller: controller,
         obscureText: hideText,
+        cursorColor: colors.button,
       ),
     );
   }

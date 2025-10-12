@@ -1,8 +1,10 @@
 import 'package:bookapp/core/themes/colors.dart';
 import 'package:bookapp/core/themes/theme_provider.dart';
+import 'package:bookapp/widgets/button.dart';
 import 'package:bookapp/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
@@ -11,6 +13,7 @@ class LoginPage extends ConsumerWidget {
     final isDarkMode = ref.watch(isDarkModeProvider);
     final colors = AppColor(isDarkMode);
     TextEditingController _emailController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -22,7 +25,7 @@ class LoginPage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80),
+            SizedBox(height: 70),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -36,6 +39,7 @@ class LoginPage extends ConsumerWidget {
                     "Welcome Back",
                     style: TextStyle(fontSize: 20, color: colors.text),
                   ),
+                  SizedBox(height: 20),
                 ],
               ),
             ),
@@ -51,15 +55,31 @@ class LoginPage extends ConsumerWidget {
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Lottie.asset(
+                        "assets/lotties/welcome.json",
+                        repeat: true,
+                        animate: true,
+                        height: 360,
+                      ),
+                      SizedBox(height: 40),
                       CustomTexField(
                         hintText: "Email",
                         icon: Icon(Icons.alternate_email_sharp),
                         controller: _emailController,
                         hideText: false,
                       ),
-                      Container(),
+                      SizedBox(height: 20),
+                      CustomTexField(
+                        hintText: "Password",
+                        icon: Icon(Icons.key_rounded),
+                        controller: _passwordController,
+                        hideText: false,
+                      ),
+                      SizedBox(height: 50),
+                      CustomButton(title: "Login", action: () {
+                        
+                      },)
                     ],
                   ),
                 ),

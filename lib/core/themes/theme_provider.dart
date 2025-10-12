@@ -1,3 +1,3 @@
 import 'package:flutter_riverpod/legacy.dart';
 
-final isDarkModeProvider = StateProvider<bool>((ref) => true);
+final isDarkModeProvider = StateProvider<bool>((ref) => false);

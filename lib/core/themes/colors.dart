@@ -17,7 +17,7 @@ class AppColor {
   Color get secondary =>
       isDarkMode ? const Color(0XFFfadde1) : const Color(0xFF57CC99);
   Color get button =>
-      isDarkMode ? const Color(0XFFfb6f92) : const Color(0XFF004346);
+      isDarkMode ? const Color(0XFFfb6f92) : const Color(0XFF06d6a0);
   Color get text => isDarkMode ? Color(0XFF172a3a) : const Color(0XFF036666);
   Color error = Color(0xFFE94560);
   Color linktext = Color(0XFFb2f7ef);
