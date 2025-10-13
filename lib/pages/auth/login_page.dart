@@ -15,14 +15,12 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   bool _hidePassword = true;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final isDarkMode = ref.watch(isDarkModeProvider);
     final colors = AppColor(isDarkMode);
-
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -48,7 +46,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     "Welcome Back",
                     style: TextStyle(fontSize: 20, color: colors.text),
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(height: 5),
                   Transform.scale(
                     scale: 1.2,
                     child: Switch(
@@ -76,7 +74,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               child: Container(
                 margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(70),
+                    topLeft: Radius.circular(70),
+                  ),
                   color: colors.background,
                 ),
                 child: Padding(
