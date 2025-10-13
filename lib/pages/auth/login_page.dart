@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
+import 'package:bookapp/core/utils/firebase_error_handler.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -27,21 +28,22 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     Future<void> login() async {
       final auth = ref.read(authServiceProvider);
-      if(_emailController.text.isEmpty || _passwordController.text.isEmpty){
-        errorMessage = "Email and Password can't be empty!";
+      if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+        setState(() {
+          errorMessage = "Email and Password can't be empty!";
+        });
+        return;
       }
       try {
         await auth.signIn(
           email: _emailController.text,
           password: _passwordController.text,
         );
-        setState(() {
-          errorMessage = "";
-        });
       } on FirebaseAuthException catch (error) {
-        if(error.code == "invalid-credential"){
-          errorMessage = "Account unexist!";
-        } else errorMessage = error.message!;
+        print(error.code);
+        setState(() {
+          errorMessage = FirebaseAuthErrorHandler.getErrorMessage(error.code);
+        });
       }
     }
 
@@ -181,9 +183,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         CustomButton(
                           title: "Login",
                           action: () {
-                            setState(() {
-                              login();
-                            });
+                            login();
                           },
                         ),
                       ],
