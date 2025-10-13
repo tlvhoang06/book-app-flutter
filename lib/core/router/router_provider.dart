@@ -21,7 +21,7 @@ class RouterNotifier extends ChangeNotifier {
       path: '/register',
       builder: (context, state) => const RegisterPage(),
     ),
-    GoRoute(path: '/profile', builder: (context, state) => const ProfilePage()),
+    GoRoute(path: '/home', builder: (context, state) => const ProfilePage()),
     GoRoute(
       path: '/loading',
       builder: (context, state) =>
@@ -37,20 +37,22 @@ final routerNotifierProvider = Provider<RouterNotifier>((ref) {
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
   final routerNotifier = ref.watch(routerNotifierProvider);
-
   return GoRouter(
     initialLocation: '/login',
     routes: routerNotifier.routes,
     redirect: (context, state) {
+      final location = state.matchedLocation;
       return authState.when(
         data: (user) {
-          if (user != null && state.matchedLocation != '/') {
-            return '/';
-          }
-          if (user == null && state.matchedLocation != '/login') {
+           final isAuth = user != null;
+          final isAuthRoute = 
+          location == '/login' || location == '/register' || location == '/loading';
+          if(!isAuth && !isAuthRoute){
             return '/login';
           }
-          return null;
+          if(isAuth){
+            return '/home';
+          }
         },
         error: (error, stack) {
           return '/login';

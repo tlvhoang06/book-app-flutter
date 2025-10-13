@@ -1,11 +1,14 @@
+import 'package:bookapp/core/router/router_provider.dart';
 import 'package:bookapp/core/services/auth_provider.dart';
 import 'package:bookapp/core/themes/colors.dart';
 import 'package:bookapp/core/themes/theme_provider.dart';
+import 'package:bookapp/pages/auth/register_page.dart';
 import 'package:bookapp/widgets/button.dart';
 import 'package:bookapp/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:bookapp/core/utils/firebase_error_handler.dart';
 
@@ -179,12 +182,41 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           errorMessage,
                           style: TextStyle(color: colors.error),
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 20),
                         CustomButton(
                           title: "Login",
                           action: () {
                             login();
                           },
+                        ),
+                        SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Already have an account?",
+                              style: TextStyle(
+                                color: isDarkMode ? Colors.white : Colors.black,
+                              ),
+                            ),
+                            SizedBox(width: 10,),
+                            TextButton(
+                              onPressed: () {
+                                GoRoute(path: '/register',builder: (context, state) {
+                                    return RegisterPage();
+                                },);
+                              },
+                              style: TextButton.styleFrom(
+                                minimumSize: Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                padding: EdgeInsets.zero,
+                              ),
+                              child: Text(
+                                "Register Now!",
+                                style: TextStyle(color: colors.button),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

@@ -18,7 +18,7 @@ class CustomButton extends ConsumerWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: colors.button,
         fixedSize: Size(390, 80),
-        elevation: 6,
+        elevation: 3,
         shadowColor: colors.primary.withOpacity(0.9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(25),
