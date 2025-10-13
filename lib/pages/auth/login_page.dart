@@ -1,7 +1,9 @@
+import 'package:bookapp/core/services/auth_provider.dart';
 import 'package:bookapp/core/themes/colors.dart';
 import 'package:bookapp/core/themes/theme_provider.dart';
 import 'package:bookapp/widgets/button.dart';
 import 'package:bookapp/widgets/textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
@@ -15,12 +17,34 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   bool _hidePassword = true;
+  String errorMessage = "";
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final isDarkMode = ref.watch(isDarkModeProvider);
     final colors = AppColor(isDarkMode);
+
+    Future<void> login() async {
+      final auth = ref.read(authServiceProvider);
+      if(_emailController.text.isEmpty || _passwordController.text.isEmpty){
+        errorMessage = "Email and Password can't be empty!";
+      }
+      try {
+        await auth.signIn(
+          email: _emailController.text,
+          password: _passwordController.text,
+        );
+        setState(() {
+          errorMessage = "";
+        });
+      } on FirebaseAuthException catch (error) {
+        if(error.code == "invalid-credential"){
+          errorMessage = "Account unexist!";
+        } else errorMessage = error.message!;
+      }
+    }
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -149,8 +173,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             ),
                           ],
                         ),
+                        Text(
+                          errorMessage,
+                          style: TextStyle(color: colors.error),
+                        ),
                         SizedBox(height: 30),
-                        CustomButton(title: "Login", action: () {}),
+                        CustomButton(
+                          title: "Login",
+                          action: () {
+                            setState(() {
+                              login();
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
