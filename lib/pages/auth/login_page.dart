@@ -34,7 +34,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 70),
+            SizedBox(height: 45),
             Padding(
               padding: EdgeInsets.all(20.0),
               child: Column(
@@ -48,18 +48,36 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     "Welcome Back",
                     style: TextStyle(fontSize: 20, color: colors.text),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 5,),
+                  Transform.scale(
+                    scale: 1.2,
+                    child: Switch(
+                      value: isDarkMode,
+                      onChanged: (value) {
+                        ref.read(isDarkModeProvider.notifier).state = value;
+                      },
+                      activeColor: colors.button,
+                      inactiveTrackColor: colors.button,
+                      thumbColor: MaterialStateProperty.all(colors.background),
+                      thumbIcon: MaterialStateProperty.all(
+                        Icon(
+                          !isDarkMode ? Icons.sunny : Icons.dark_mode,
+                          color: colors.primary,
+                        ),
+                      ),
+                      splashRadius: 20,
+                      trackOutlineWidth: WidgetStatePropertyAll(0),
+                    ),
+                  ),
                 ],
               ),
             ),
             Expanded(
-              child: Card(
+              child: Container(
                 margin: EdgeInsets.zero,
-                elevation: 6,
-                shadowColor: Colors.black54,
-                color: colors.background,
-                shape: RoundedRectangleBorder(
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(60),
+                  color: colors.background,
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(20),
@@ -70,9 +88,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           "assets/lotties/welcome.json",
                           repeat: true,
                           animate: true,
-                          height: 360,
+                          height: 340,
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 20),
                         CustomTexField(
                           hintText: "Email",
                           icon: Icon(Icons.alternate_email_sharp),
@@ -108,12 +126,21 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                 ),
                                 Text(
                                   "Show password",
-                                  style: TextStyle(color: colors.text),
+                                  style: TextStyle(
+                                    color: isDarkMode
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ),
                               ],
                             ),
                             TextButton(
                               onPressed: () {},
+                              style: TextButton.styleFrom(
+                                minimumSize: Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                padding: EdgeInsets.zero,
+                              ),
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(color: colors.button),
