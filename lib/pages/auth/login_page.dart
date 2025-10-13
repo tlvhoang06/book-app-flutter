@@ -1,4 +1,3 @@
-import 'package:bookapp/core/router/router_provider.dart';
 import 'package:bookapp/core/services/auth_provider.dart';
 import 'package:bookapp/core/themes/colors.dart';
 import 'package:bookapp/core/themes/theme_provider.dart';
@@ -202,9 +201,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             SizedBox(width: 10,),
                             TextButton(
                               onPressed: () {
-                                GoRoute(path: '/register',builder: (context, state) {
-                                    return RegisterPage();
-                                },);
+                                context.push('/register');
                               },
                               style: TextButton.styleFrom(
                                 minimumSize: Size(0, 0),
