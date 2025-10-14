@@ -1,7 +1,6 @@
 import 'package:bookapp/core/services/auth_provider.dart';
 import 'package:bookapp/core/themes/colors.dart';
 import 'package:bookapp/core/themes/theme_provider.dart';
-import 'package:bookapp/pages/auth/register_page.dart';
 import 'package:bookapp/widgets/button.dart';
 import 'package:bookapp/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -71,7 +70,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     style: TextStyle(fontSize: 40, color: colors.text),
                   ),
                   Text(
-                    "Welcome Back",
+                    "Welcome Back!",
                     style: TextStyle(fontSize: 20, color: colors.text),
                   ),
                   SizedBox(height: 5),
@@ -181,7 +180,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           errorMessage,
                           style: TextStyle(color: colors.error),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 15),
                         CustomButton(
                           title: "Login",
                           action: () {
@@ -193,7 +192,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Already have an account?",
+                              "Don't have account yet?",
                               style: TextStyle(
                                 color: isDarkMode ? Colors.white : Colors.black,
                               ),

@@ -44,7 +44,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       final location = state.matchedLocation;
       return authState.when(
         data: (user) {
-           final isAuth = user != null;
+          final isAuth = user != null;
           final isAuthRoute = 
           location == '/login' || location == '/register' || location == '/loading';
           if(!isAuth && !isAuthRoute){
@@ -53,6 +53,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           if(isAuth){
             return '/home';
           }
+          return null;
         },
         error: (error, stack) {
           return '/login';
