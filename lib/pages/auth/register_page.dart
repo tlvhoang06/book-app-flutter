@@ -209,7 +209,10 @@ class _LoginPageState extends ConsumerState<RegisterPage> {
                               ),
                               child: Text(
                                 "Login",
-                                style: TextStyle(color: colors.button),
+                                style: TextStyle(
+                                  color: colors.button,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],

@@ -1,6 +1,7 @@
 import 'package:bookapp/core/services/auth_provider.dart';
 import 'package:bookapp/pages/loading_page.dart';
 import 'package:bookapp/pages/auth/login_page.dart';
+import 'package:bookapp/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,17 +17,14 @@ class RouterNotifier extends ChangeNotifier {
 
   List<GoRoute> get routes => [
     GoRoute(path: '/', builder: (context, state) => const HomePage()),
+    GoRoute(path: '/welcome', builder: (context, state) => const WelcomePage()),
     GoRoute(path: '/login', builder: (context, state) => const LoginPage()),
     GoRoute(
       path: '/register',
       builder: (context, state) => const RegisterPage(),
     ),
     GoRoute(path: '/home', builder: (context, state) => const ProfilePage()),
-    GoRoute(
-      path: '/loading',
-      builder: (context, state) =>
-          LoadingPage(),
-    ),
+    GoRoute(path: '/loading', builder: (context, state) => LoadingPage()),
   ];
 }
 
@@ -38,19 +36,22 @@ final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
   final routerNotifier = ref.watch(routerNotifierProvider);
   return GoRouter(
-    initialLocation: '/loading',
+    initialLocation: '/welcome',
     routes: routerNotifier.routes,
     redirect: (context, state) {
       final location = state.matchedLocation;
       return authState.when(
         data: (user) {
           final isAuth = user != null;
-          final isAuthRoute = 
-          location == '/login' || location == '/register' || location == '/loading';
-          if(!isAuth && !isAuthRoute){
-            return '/login';
+          final isAuthRoute =
+              location == '/login' ||
+              location == '/register' ||
+              location == 'welcome' ||
+              location == '/loading';
+          if (!isAuth && !isAuthRoute) {
+            return '/welcome';
           }
-          if(isAuth){
+          if (isAuth) {
             return '/home';
           }
           return null;

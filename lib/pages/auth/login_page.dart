@@ -197,7 +197,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                 color: isDarkMode ? Colors.white : Colors.black,
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            SizedBox(width: 10),
                             TextButton(
                               onPressed: () {
                                 context.push('/register');
@@ -209,7 +209,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ),
                               child: Text(
                                 "Register Now!",
-                                style: TextStyle(color: colors.button),
+                                style: TextStyle(
+                                  color: colors.button,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
