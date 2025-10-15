@@ -127,7 +127,7 @@ class _LoginPageState extends ConsumerState<RegisterPage> {
                     child: Column(
                       children: [
                         Lottie.asset(
-                          "assets/lotties/book_stacking.json",
+                          "assets/lotties/register.json",
                           repeat: true,
                           animate: true,
                           height: 280,

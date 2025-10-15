@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key});
@@ -6,8 +7,7 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(
-      decoration: BoxDecoration(),
-      child: Center(),
+      child: Center(child: Lottie.asset('assets/lotties/loading.json'),),
     ),);
   }
 }

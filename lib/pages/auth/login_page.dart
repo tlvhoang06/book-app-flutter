@@ -113,7 +113,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     child: Column(
                       children: [
                         Lottie.asset(
-                          "assets/lotties/welcome.json",
+                          "assets/lotties/login.json",
                           repeat: true,
                           animate: true,
                           height: 340,
