@@ -22,60 +22,6 @@ class WelcomePage extends ConsumerWidget {
         child: PageView(
           controller: _slideController,
           children: [
-            Container(child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsGeometry.only(left: 30),
-                    child: Lottie.asset(
-                      'assets/lotties/welcome.json',
-                      height: 350,
-                    ),
-                  ),
-                  SizedBox(height: 200,),
-                  SmoothPageIndicator(
-                    controller: _slideController,
-                    count: 3,
-                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
-                  ),
-                  SizedBox(height: 100),
-                  CustomButton(
-                    title: "Get Started",
-                    action: () {
-                      context.push('/register');
-                    },
-                    height: 60,
-                    width: 300,
-                  ),
-                ],
-              ),),
-            Container(child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsGeometry.only(left: 30),
-                    child: Lottie.asset(
-                      'assets/lotties/welcome.json',
-                      height: 350,
-                    ),
-                  ),
-                  SizedBox(height: 200,),
-                  SmoothPageIndicator(
-                    controller: _slideController,
-                    count: 3,
-                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
-                  ),
-                  SizedBox(height: 100),
-                  CustomButton(
-                    title: "Get Started",
-                    action: () {
-                      context.push('/register');
-                    },
-                    height: 60,
-                    width: 300,
-                  ),
-                ],
-              ),),
             Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,11 +33,100 @@ class WelcomePage extends ConsumerWidget {
                       height: 350,
                     ),
                   ),
-                  SizedBox(height: 200,),
+                  SizedBox(height: 200),
                   SmoothPageIndicator(
                     controller: _slideController,
                     count: 3,
-                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
+                    effect: SlideEffect(
+                      activeDotColor: colors.text,
+                      dotColor: colors.primary,
+                    ),
+                  ),
+                  SizedBox(height: 100),
+                  CustomButton(
+                    title: "Get Started",
+                    action: () {
+                      context.push('/register');
+                    },
+                    height: 60,
+                    width: 300,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(left: 30),
+                    child: Lottie.asset(
+                      'assets/lotties/welcome.json',
+                      height: 350,
+                    ),
+                  ),
+
+                  SizedBox(height: 100),
+                  SmoothPageIndicator(
+                    controller: _slideController,
+                    count: 3,
+                    effect: SlideEffect(
+                      activeDotColor: colors.text,
+                      dotColor: colors.primary,
+                    ),
+                  ),
+                  SizedBox(height: 100),
+                  CustomButton(
+                    title: "Get Started",
+                    action: () {
+                      context.push('/register');
+                    },
+                    height: 60,
+                    width: 300,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(left: 30),
+                    child: Lottie.asset(
+                      'assets/lotties/welcome.json',
+                      height: 350,
+                    ),
+                  ),
+                  Text(
+                    'Read Smarter with',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: colors.text,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Readora',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: colors.text.withGreen(190),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Let our AI assistant summarize chapters, suggest books, and guide your reading journey.',
+                    style: TextStyle(fontSize: 18, color: colors.text, fontWeight: FontWeight.bold),
+                    softWrap: true,
+                  ),
+                  SizedBox(height: 100),
+                  SmoothPageIndicator(
+                    controller: _slideController,
+                    count: 3,
+                    effect: SlideEffect(
+                      activeDotColor: colors.text,
+                      dotColor: colors.primary,
+                    ),
                   ),
                   SizedBox(height: 100),
                   CustomButton(
