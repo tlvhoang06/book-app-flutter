@@ -186,6 +186,8 @@ class _LoginPageState extends ConsumerState<RegisterPage> {
                           action: () {
                             register();
                           },
+                          height: 80,
+                          width: 390,
                         ),
                         SizedBox(height: 15),
                         Row(

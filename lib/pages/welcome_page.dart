@@ -1,25 +1,111 @@
+import 'package:bookapp/core/themes/colors.dart';
+import 'package:bookapp/core/themes/theme_provider.dart';
 import 'package:bookapp/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends ConsumerWidget {
   const WelcomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _slideController = PageController();
+    final isDarkMode = ref.watch(isDarkModeProvider);
+    final colors = AppColor(isDarkMode);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 194, 238, 198),
       body: Container(
-        decoration: BoxDecoration(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Padding(
-            padding: EdgeInsetsGeometry.only(left: 30),
-            child: Lottie.asset('assets/lotties/welcome.json', height: 380),
-          ), CustomButton(title: "Get Started", action: () {
-              context.push('/register');
-          },)],
+        padding: EdgeInsets.only(bottom: 80),
+        child: PageView(
+          controller: _slideController,
+          children: [
+            Container(child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(left: 30),
+                    child: Lottie.asset(
+                      'assets/lotties/welcome.json',
+                      height: 350,
+                    ),
+                  ),
+                  SizedBox(height: 200,),
+                  SmoothPageIndicator(
+                    controller: _slideController,
+                    count: 3,
+                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
+                  ),
+                  SizedBox(height: 100),
+                  CustomButton(
+                    title: "Get Started",
+                    action: () {
+                      context.push('/register');
+                    },
+                    height: 60,
+                    width: 300,
+                  ),
+                ],
+              ),),
+            Container(child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(left: 30),
+                    child: Lottie.asset(
+                      'assets/lotties/welcome.json',
+                      height: 350,
+                    ),
+                  ),
+                  SizedBox(height: 200,),
+                  SmoothPageIndicator(
+                    controller: _slideController,
+                    count: 3,
+                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
+                  ),
+                  SizedBox(height: 100),
+                  CustomButton(
+                    title: "Get Started",
+                    action: () {
+                      context.push('/register');
+                    },
+                    height: 60,
+                    width: 300,
+                  ),
+                ],
+              ),),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(left: 30),
+                    child: Lottie.asset(
+                      'assets/lotties/welcome.json',
+                      height: 350,
+                    ),
+                  ),
+                  SizedBox(height: 200,),
+                  SmoothPageIndicator(
+                    controller: _slideController,
+                    count: 3,
+                    effect: SlideEffect(activeDotColor: colors.text, dotColor: colors.primary),
+                  ),
+                  SizedBox(height: 100),
+                  CustomButton(
+                    title: "Get Started",
+                    action: () {
+                      context.push('/register');
+                    },
+                    height: 60,
+                    width: 300,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

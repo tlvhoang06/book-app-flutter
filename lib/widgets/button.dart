@@ -6,7 +6,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class CustomButton extends ConsumerWidget {
   final String title;
   final VoidCallback action;
-  const CustomButton({super.key, required this.title, required this.action});
+  final double width, height;
+  const CustomButton({
+    super.key,
+    required this.title,
+    required this.action,
+    required this.height,
+    required this.width,
+  });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDarkMode = ref.watch(isDarkModeProvider);
@@ -17,7 +24,7 @@ class CustomButton extends ConsumerWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: colors.button,
-        fixedSize: Size(390, 80),
+        fixedSize: Size(width, height),
         elevation: 3,
         shadowColor: colors.primary.withOpacity(0.9),
         shape: RoundedRectangleBorder(
