@@ -114,10 +114,12 @@ class WelcomePage extends ConsumerWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 10,),
                   Text(
                     'Let our AI assistant summarize chapters, suggest books, and guide your reading journey.',
                     style: TextStyle(fontSize: 18, color: colors.text, fontWeight: FontWeight.bold),
                     softWrap: true,
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 100),
                   SmoothPageIndicator(
