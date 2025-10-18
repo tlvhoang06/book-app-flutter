@@ -46,7 +46,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           final isAuthRoute =
               location == '/login' ||
               location == '/register' ||
-              location == 'welcome' ||
+              location == '/welcome' ||
               location == '/loading';
           if (!isAuth && !isAuthRoute) {
             return '/welcome';
