@@ -23,15 +23,15 @@ class WelcomePage extends ConsumerWidget {
           controller: _slideController,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
                   'assets/images/girl.png',
-                  height: 500,
-                  width: 500,
-                  fit: BoxFit.contain,
+                  height: 470,
+                  width: 450,
+                  fit: BoxFit.fitHeight,
                 ),
-                SizedBox(height: 30,),
                 Text(
                   'Your Reading, Your Way',
                   style: TextStyle(
@@ -40,7 +40,7 @@ class WelcomePage extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
                 Text(
                   'Customize your library, switch themes, and enjoy a reading space built for you..',
                   style: TextStyle(
@@ -51,9 +51,9 @@ class WelcomePage extends ConsumerWidget {
                   softWrap: true,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 100,),
+                SizedBox(height: 95,),
                 PageIndicator(slideController: _slideController),
-                SizedBox(height: 50,),
+                SizedBox(height: 85,),
                 CustomButton(
                   title: "Get Started",
                   action: () {
