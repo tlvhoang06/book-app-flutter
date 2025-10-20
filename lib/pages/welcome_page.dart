@@ -40,20 +40,23 @@ class WelcomePage extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 20),
-                Text(
-                  'Customize your library, switch themes, and enjoy a reading space built for you..',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: colors.text,
-                    fontWeight: FontWeight.bold,
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    'Customize your library, switch themes, and enjoy a reading space built for you..',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: colors.text,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    softWrap: true,
+                    textAlign: TextAlign.center,
                   ),
-                  softWrap: true,
-                  textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 95,),
+                SizedBox(height: 100),
                 PageIndicator(slideController: _slideController),
-                SizedBox(height: 85,),
+                SizedBox(height: 100),
                 CustomButton(
                   title: "Get Started",
                   action: () {
@@ -65,17 +68,40 @@ class WelcomePage extends ConsumerWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsGeometry.only(left: 30),
-                  // child: Lottie.asset(
-                  //   'assets/lotties/progress.json',
-                  //   height: 350,
-                  //   repeat: false,
-                  // ),
-                ),
+                  padding: const EdgeInsets.only(top: 140),
+                  child: Image.asset(
+                    'assets/images/progress.png',
+                    fit: BoxFit.fill,
+                    height: 250,
 
+                  ),
+                ),
+                SizedBox(height: 80,),
+                Text(
+                  'Grow With Every Page',
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: colors.text.withGreen(190),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    'Track your habits, reflect on your progress, and keep learning at your own pace',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: colors.text,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 SizedBox(height: 100),
                 PageIndicator(slideController: _slideController),
                 SizedBox(height: 100),
@@ -90,8 +116,9 @@ class WelcomePage extends ConsumerWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(height: 60),
                 Padding(
                   padding: EdgeInsetsGeometry.only(left: 30),
                   child: Lottie.asset('assets/lotties/robot.json', height: 350),
@@ -112,7 +139,7 @@ class WelcomePage extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 50),
                 Text(
                   'Let our AI assistant summarize chapters, suggest books, and guide your reading journey.',
                   style: TextStyle(
@@ -125,7 +152,7 @@ class WelcomePage extends ConsumerWidget {
                 ),
                 SizedBox(height: 100),
                 PageIndicator(slideController: _slideController),
-                SizedBox(height: 80),
+                SizedBox(height: 105),
                 CustomButton(
                   title: "Get Started",
                   action: () {
