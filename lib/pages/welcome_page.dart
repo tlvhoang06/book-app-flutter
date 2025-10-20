@@ -161,7 +161,7 @@ class WelcomePage extends ConsumerWidget {
                 CustomButton(
                   title: "Get Started",
                   action: () {
-                    context.push('/register');
+                    context.push('/login');
                   },
                   height: 60,
                   width: 300,
