@@ -58,9 +58,12 @@ class WelcomePage extends ConsumerWidget {
                 PageIndicator(slideController: _slideController),
                 SizedBox(height: 100),
                 CustomButton(
-                  title: "Get Started",
+                  title: "Next",
                   action: () {
-                    context.push('/register');
+                    _slideController.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
                   },
                   height: 60,
                   width: 300,
@@ -76,10 +79,9 @@ class WelcomePage extends ConsumerWidget {
                     'assets/images/progress.png',
                     fit: BoxFit.fill,
                     height: 250,
-
                   ),
                 ),
-                SizedBox(height: 80,),
+                SizedBox(height: 80),
                 Text(
                   'Grow With Every Page',
                   style: TextStyle(
@@ -106,9 +108,12 @@ class WelcomePage extends ConsumerWidget {
                 PageIndicator(slideController: _slideController),
                 SizedBox(height: 100),
                 CustomButton(
-                  title: "Get Started",
+                  title: "Next",
                   action: () {
-                    context.push('/register');
+                    _slideController.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
                   },
                   height: 60,
                   width: 300,
