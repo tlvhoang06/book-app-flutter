@@ -18,8 +18,8 @@ class PageIndicator extends ConsumerWidget {
       effect: SlideEffect(
         dotHeight: 12,
         dotWidth: 12,
-        activeDotColor: colors.text,
-        dotColor: colors.primary,
+        activeDotColor: colors.button,
+        dotColor: colors.secondary,
         type: SlideType.slideUnder
       ),
     );

@@ -101,7 +101,7 @@ class _LoginPageState extends ConsumerState<RegisterPage> {
                       thumbIcon: MaterialStateProperty.all(
                         Icon(
                           !isDarkMode ? Icons.sunny : Icons.dark_mode,
-                          color: colors.primary,
+                          color: isDarkMode ? colors.primary : colors.button,
                         ),
                       ),
                       splashRadius: 20,
