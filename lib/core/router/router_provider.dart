@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:bookapp/pages/auth/register_page.dart';
 import 'package:bookapp/pages/home_page.dart';
-import 'package:bookapp/pages/profile_page.dart';
 
 class RouterNotifier extends ChangeNotifier {
   final Ref _ref;
@@ -23,7 +22,7 @@ class RouterNotifier extends ChangeNotifier {
       path: '/register',
       builder: (context, state) => const RegisterPage(),
     ),
-    GoRoute(path: '/home', builder: (context, state) => const ProfilePage()),
+    GoRoute(path: '/home', builder: (context, state) => const HomePage()),
     GoRoute(path: '/loading', builder: (context, state) => LoadingPage()),
   ];
 }
