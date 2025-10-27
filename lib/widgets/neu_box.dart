@@ -22,14 +22,14 @@ class NeuBox extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             blurRadius: 2,
-            offset: Offset(2, 2),
-            color: Colors.grey.shade400,
+            offset: Offset(1, 1),
+            color: Colors.black,
             spreadRadius: 1,
           ),
           BoxShadow(
             blurRadius: 2,
-            offset: Offset(-2, -2),
-            color: Colors.grey.shade200,
+            offset: Offset(-1, -1),
+            color: Colors.grey.shade500,
             spreadRadius: 1,
           ),
         ],

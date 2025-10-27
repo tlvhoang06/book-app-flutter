@@ -22,15 +22,20 @@ class HomePage extends ConsumerWidget {
         child: Container(
           child: Column(
             children: [
-              InkWell(
-                onTap: () {},
-                splashColor: colors.button,
-                child: NeuBox(
-                  color: colors.background,
-                  height: 50,
-                  width: 50,
-                  radius: 20,
-                  child: Icon(UniconsLine.apps),
+              NeuBox(
+                color: colors.background,
+                height: 50,
+                width: 50,
+                radius: 20,
+                child: Builder(
+                  builder: (context) {
+                    return IconButton(
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      icon: Icon(UniconsLine.apps, color: colors.button),
+                    );
+                  },
                 ),
               ),
             ],
