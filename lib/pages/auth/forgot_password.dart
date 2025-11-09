@@ -10,14 +10,14 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:bookapp/core/utils/firebase_error_handler.dart';
 
-class LoginPage extends ConsumerStatefulWidget {
-  const LoginPage({super.key});
+class ForgotPasswordPage extends ConsumerStatefulWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
-  ConsumerState<LoginPage> createState() => _LoginPageState();
+  ConsumerState<ForgotPasswordPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends ConsumerState<LoginPage> {
+class _LoginPageState extends ConsumerState<ForgotPasswordPage> {
   bool _hidePassword = true;
   String errorMessage = "";
   final TextEditingController _emailController = TextEditingController();
@@ -74,26 +74,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     style: TextStyle(fontSize: 20, color: colors.text),
                   ),
                   SizedBox(height: 5),
-                  Transform.scale(
-                    scale: 1.2,
-                    child: Switch(
-                      value: isDarkMode,
-                      onChanged: (value) {
-                        ref.read(isDarkModeProvider.notifier).state = value;
-                      },
-                      activeColor: colors.button,
-                      inactiveTrackColor: colors.button,
-                      thumbColor: MaterialStateProperty.all(colors.background),
-                      thumbIcon: MaterialStateProperty.all(
-                        Icon(
-                          !isDarkMode ? Icons.sunny : Icons.dark_mode,
-                          color: isDarkMode ? colors.primary : colors.button,
-                        ),
-                      ),
-                      splashRadius: 20,
-                      trackOutlineWidth: WidgetStatePropertyAll(0),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -112,12 +92,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Lottie.asset(
-                          "assets/lotties/login.json",
-                          repeat: true,
-                          animate: true,
-                          height: 340,
-                        ),
                         SizedBox(height: 20),
                         CustomTexField(
                           hintText: "Email",
@@ -163,9 +137,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ],
                             ),
                             TextButton(
-                              onPressed: () {
-                                context.push('/forgot');
-                              },
+                              onPressed: () {},
                               style: TextButton.styleFrom(
                                 minimumSize: Size(0, 0),
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,

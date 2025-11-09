@@ -1,4 +1,5 @@
 import 'package:bookapp/core/services/auth_provider.dart';
+import 'package:bookapp/pages/auth/forgot_password.dart';
 import 'package:bookapp/pages/loading_page.dart';
 import 'package:bookapp/pages/auth/login_page.dart';
 import 'package:bookapp/pages/welcome_page.dart';
@@ -22,6 +23,10 @@ class RouterNotifier extends ChangeNotifier {
       path: '/register',
       builder: (context, state) => const RegisterPage(),
     ),
+    GoRoute(
+      path: '/forgot',
+      builder: (context, state) => const ForgotPasswordPage(),
+    ),
     GoRoute(path: '/home', builder: (context, state) => const HomePage()),
     GoRoute(path: '/loading', builder: (context, state) => LoadingPage()),
   ];
@@ -44,6 +49,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           final isAuth = user != null;
           final isAuthRoute =
               location == '/login' ||
+              location == '/forgot' ||
               location == '/register' ||
               location == '/welcome' ||
               location == '/loading';
@@ -53,7 +59,8 @@ final routerProvider = Provider<GoRouter>((ref) {
           if (isAuth &&
               (location == '/welcome' ||
                   location == '/login' ||
-                  location == '/register')) {
+                  location == '/register' ||
+                  location == 'forgot')) {
             return '/home';
           }
           return null;
